@@ -16,6 +16,8 @@ The is an Unity project where I am creating a small RTS like game with 2 AIs col
   -   Build Armies
   -   Defeat the opponent
 
+<img src="https://github.com/NWagter/Flocking_Dots/blob/main/Github_Resources/Test_Utility_Inputs_Amount_And_Gain.gif" width="500"/>
+  
 # Desmos
 
 I use desmos to visualize my curves they can be found in the following links.
@@ -26,6 +28,8 @@ If the link is not yet there this means I am still implementing it.
 - Quadratic
 - Logistic
 - Logit
+
+  <img src="https://github.com/NWagter/Flocking_Dots/blob/main/Github_Resources/Linear_Curve.gif" width="500"/>
 
 # Sources
 
