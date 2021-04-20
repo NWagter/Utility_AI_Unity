@@ -16,6 +16,16 @@ The is an Unity project where I am creating a small RTS like game with 2 AIs col
   -   Build Armies
   -   Defeat the opponent
 
+# Desmos
+
+I use desmos to visualize my curves they can be found in the following links.
+If the link is not yet there this means I am still implementing it.
+
+
+- Linear Curve https://www.desmos.com/calculator/l4zetjui7n
+- Quadratic
+- Logistic
+- Logit
 
 # Sources
 
