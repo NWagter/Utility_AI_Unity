@@ -16,7 +16,9 @@ The is an Unity project where I am creating a small RTS like game with 2 AIs col
   -   Build Armies
   -   Defeat the opponent
 
-<img src="https://github.com/NWagter/Utility_AI_Unity/blob/main/Github_Resources/Test_Utility_Inputs_Amount_And_Gain.gif" width="500"/>
+<p align="center">
+  <img src="https://github.com/NWagter/Utility_AI_Unity/blob/main/Github_Resources/Test_Utility_Inputs_Amount_And_Gain.gif" width="500"/>
+</p>
   
 # Desmos
 
@@ -28,9 +30,9 @@ If the link is not yet there this means I am still implementing it.
 - Quadratic
 - Logistic
 - Logit
-
+<p align="center">
   <img src="https://github.com/NWagter/Utility_AI_Unity/blob/main/Github_Resources/Linear_Curve.gif" width="500"/>
-
+</p>
 # Sources
 
 - https://www.gdcvault.com/play/1018040/Architecture-Tricks-Managing-Behaviors-in
