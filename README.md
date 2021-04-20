@@ -16,7 +16,7 @@ The is an Unity project where I am creating a small RTS like game with 2 AIs col
   -   Build Armies
   -   Defeat the opponent
 
-<img src="https://github.com/NWagter/Utility_AI_Unity/blob/main/Github_Resources/Linear_Curve.gif" width="500"/>
+<img src="https://github.com/NWagter/Utility_AI_Unity/blob/main/Github_Resources/Test_Utility_Inputs_Amount_And_Gain.gif" width="500"/>
   
 # Desmos
 
