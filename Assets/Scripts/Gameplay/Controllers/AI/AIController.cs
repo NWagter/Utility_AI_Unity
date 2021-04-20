@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AIController : Controller
 {
-
     private UtilAI.UtilityBrain m_brain = null;
     [SerializeField]
     private List<UtilAI.ActionSO> m_availableActions = new List<UtilAI.ActionSO>();
@@ -30,6 +29,7 @@ public class AIController : Controller
             m_buildTimer -= Time.deltaTime;
 
         m_brain.UpdateBrain(Time.deltaTime);
+        m_resourceManager.Update(Time.deltaTime);
     }
 
     public Vector3 FindBuildingSpot(BuildingSO a_building)
@@ -81,7 +81,6 @@ public class AIController : Controller
         }
 
     }
-
 
     Vector3 FindSawmillSpot(Vector3 a_keep, float a_radius, float a_sawRange, int a_minTrees)
     {

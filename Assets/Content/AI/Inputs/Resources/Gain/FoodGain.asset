@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e233568ad1f3ce4fa679d0c3c82d4a2, type: 3}
-  m_Name: FoodInput
+  m_Script: {fileID: 11500000, guid: c82b7ea5a6e5ec047b71a2b2bf47fe3f, type: 3}
+  m_Name: FoodGain
   m_EditorClassIdentifier: 
   m_curveType: 0
   m_curveRules:
-    m: 0.5
+    m: -1
     k: 1
-    b: 0.25
+    b: 1
     c: 0
-  m_max: 50
-  a_type: 0
+  m_max: 100
+  m_type: 0

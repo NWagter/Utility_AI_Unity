@@ -19,4 +19,4 @@ MonoBehaviour:
     b: 0.25
     c: 0
   m_max: 50
-  a_type: 2
+  m_type: 2

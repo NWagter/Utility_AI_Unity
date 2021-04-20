@@ -28,7 +28,6 @@ namespace UtilAI
         {
             float exponent = Mathf.Pow((a_input - a_rules.c), a_rules.k);
             float result = a_rules.m * exponent + a_rules.b;
-            Debug.Log("Linear Result : " + result.ToString());
             return result;
         }
         private static float QuadraticCurve(float a_input, CurveRules a_rules)

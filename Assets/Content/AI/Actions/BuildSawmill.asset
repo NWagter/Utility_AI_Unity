@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_weightCoefficient: 1
   m_contions:
-  - m_input: {fileID: 11400000, guid: 20a02c377ad0a604995e09263166bb70, type: 2}
+  - m_input: {fileID: 11400000, guid: 43bbdc372ea5dfc47a83bd5f2f3fdc86, type: 2}
+  - m_input: {fileID: 11400000, guid: 279a21f3dbdeb3e4da5a0a6f979f52b2, type: 2}
+  m_actionType: 0
   m_building: {fileID: 11400000, guid: 16ada5465187a064ab73ad8a9c2e7e43, type: 2}

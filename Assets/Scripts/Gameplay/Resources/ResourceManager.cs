@@ -27,12 +27,14 @@ public struct ResourcesCollection
 [System.Serializable]
 public class ResourceManager
 {
+    private float m_timer = 0.0f;
 
     private ResourcesCollection m_resources;
-
+    private ResourcesCollection m_spendResources;
     public ResourceManager()
     {
         m_resources = new ResourcesCollection(75, 150, 50);
+        CalcGain();
     }
 
     public bool CanSpend(ResourcesCollection a_spendable)
@@ -54,12 +56,15 @@ public class ResourceManager
         {
             case ResourceType.food:
                 m_resources.m_food += a_amount;
+                m_spendResources.m_food += a_amount;
                 break;
             case ResourceType.wood:
                 m_resources.m_wood += a_amount;
+                m_spendResources.m_wood += a_amount;
                 break;
             case ResourceType.stone:
                 m_resources.m_stone += a_amount;
+                m_spendResources.m_stone += a_amount;
                 break;
         }
     }
@@ -69,8 +74,11 @@ public class ResourceManager
         m_resources.m_food += a_amount.m_food;
         m_resources.m_wood += a_amount.m_wood;
         m_resources.m_stone += a_amount.m_stone;
-    }
 
+        m_spendResources.m_food += a_amount.m_food;
+        m_spendResources.m_wood += a_amount.m_wood;
+        m_spendResources.m_stone += a_amount.m_stone;
+    }
 
     public bool SpentResource(ResourceType a_type, int a_amount)
     {
@@ -84,7 +92,7 @@ public class ResourceManager
                 }
 
                 m_resources.m_food -= a_amount;
-
+                m_spendResources.m_food -= a_amount;
                 break;
             case ResourceType.wood:
 
@@ -94,6 +102,7 @@ public class ResourceManager
                 }
 
                 m_resources.m_wood -= a_amount;
+                m_spendResources.m_wood -= a_amount;
 
                 break;
             case ResourceType.stone:
@@ -104,6 +113,7 @@ public class ResourceManager
                 }
 
                 m_resources.m_stone -= a_amount;
+                m_spendResources.m_stone -= a_amount;
 
                 break;
         }
@@ -126,11 +136,14 @@ public class ResourceManager
             m_resources.m_food -= a_amount.m_food;
             m_resources.m_wood -= a_amount.m_wood;
             m_resources.m_stone -= a_amount.m_stone;
+
+            m_spendResources.m_food -= a_amount.m_food;
+            m_spendResources.m_wood -= a_amount.m_wood;
+            m_spendResources.m_stone -= a_amount.m_stone;
         }
 
         return canSpend;
     }
-   
     public int GetResource(ResourceType a_type)
     {
         switch(a_type)
@@ -146,4 +159,36 @@ public class ResourceManager
         return 0;
     }
     public ResourcesCollection GetResources() { return m_resources; }
+    public int GetResourceGain(ResourceType a_type)
+    {
+        switch (a_type)
+        {
+            case ResourceType.food:
+                return m_spendResources.m_food;
+            case ResourceType.wood:
+                return m_spendResources.m_wood;
+            case ResourceType.stone:
+                return m_spendResources.m_stone;
+        }
+
+        return 0;
+    }
+    public ResourcesCollection GetResourcesGain() { return m_spendResources; }
+    private void CalcGain()
+    {
+        m_spendResources = new ResourcesCollection();
+    }
+
+    public void Update(float a_dt)
+    {
+        if(m_timer > 2.0f)
+        {
+            CalcGain();
+            m_timer = 0;
+        }
+
+
+        m_timer += a_dt;
+
+    }
 }

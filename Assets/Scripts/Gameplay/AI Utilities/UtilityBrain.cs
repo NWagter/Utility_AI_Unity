@@ -53,7 +53,7 @@ namespace UtilAI
         {
             foreach(ActionSO a in m_availableActions)
             {
-                if (a.m_actionType == ActionType.Building && m_controller.getBuildingTimer > 0)
+                if (a.m_actionType == ActionType.Building && m_controller.getBuildingTimer >= 0)
                     continue;
 
 
@@ -72,7 +72,7 @@ namespace UtilAI
                 //if (posAction.m_weight != 0 && posAction.m_weight > weight)
                 if (posAction.m_weight >= weight)
                 {
-                    weight = (posAction.m_weight) + Random.Range(m_randomness.x, m_randomness.y);
+                    weight = (posAction.m_weight);
                     action = posAction;
                 }
             }
