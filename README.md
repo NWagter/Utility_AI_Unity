@@ -36,3 +36,5 @@ If the link is not yet there this means I am still implementing it.
 # Sources
 
 - https://www.gdcvault.com/play/1018040/Architecture-Tricks-Managing-Behaviors-in
+- "Behavioral Mathematics for Game AI" by Dave Mark https://www.amazon.nl/Behavioral-Mathematics-Game-Dave-Mark/dp/1584506849
+- "Game AI Pro" Edited by Steve Narbin https://www.amazon.nl/Game-AI-Pro-Collected-Professionals/dp/1466565969
