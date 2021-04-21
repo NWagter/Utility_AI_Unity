@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7372024425731537976}
   - component: {fileID: 7372024425731537977}
   m_Layer: 0
-  m_Name: AI
+  m_Name: AI Crazy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede70c140f4c4b046befd6c9e864f429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_brainSO: {fileID: 11400000, guid: c296eed83ca80da4d8f3307a31562de2, type: 2}
+  m_brainSO: {fileID: 11400000, guid: 1f1b40c9e855073498763432beee5d1c, type: 2}
   m_availableActions:
   - {fileID: 11400000, guid: 61a4c93de7f2bb642bfe8a2574a8889b, type: 2}
   - {fileID: 11400000, guid: 7b9b15baa2b747d469abae3c62e73c54, type: 2}

@@ -18,6 +18,7 @@ namespace UtilAI
             }
         }
 
+        private UtilityBrainSO m_brainSO = null;
         public AIController m_controller { get; private set; }
         public ResourceManager m_resourceManager => m_controller.m_resourceManager;
         public Builder m_builder => m_controller.m_builder;
@@ -27,12 +28,11 @@ namespace UtilAI
         private List<ActionSO> m_availableActions;
         private List<PotentialAction> m_potentialActions = new List<PotentialAction>();
 
-        private Vector2 m_randomness = new Vector2(-0.1f, 0.1f);
-
-        public UtilityBrain(AIController a_controller, List<ActionSO> a_actions)
+        public UtilityBrain(AIController a_controller, List<ActionSO> a_actions, UtilityBrainSO a_brainSO)
         {
             m_controller = a_controller;
             m_availableActions = a_actions;
+            m_brainSO = a_brainSO;
         }
 
         public void UpdateBrain(float a_dt)
@@ -69,10 +69,19 @@ namespace UtilAI
 
             foreach (PotentialAction posAction in m_potentialActions)
             {
+                float w = posAction.m_weight;
+
+                if (m_brainSO != null)
+                {
+                    Debug.Log("Before | " + m_brainSO.name + " | " + posAction.m_action.name + " : " + w);
+                    w += Random.Range(m_brainSO.m_minOffset, m_brainSO.m_maxOffset);
+                    Debug.Log("After | " + m_brainSO.name +" | " + posAction.m_action.name + " : " + w);
+                }
+
                 //if (posAction.m_weight != 0 && posAction.m_weight > weight)
                 if (posAction.m_weight >= weight)
                 {
-                    weight = (posAction.m_weight);
+                    weight = w;
                     action = posAction;
                 }
             }

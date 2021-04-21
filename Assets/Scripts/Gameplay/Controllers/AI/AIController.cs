@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class AIController : Controller
 {
+    [SerializeField]
+    private UtilAI.UtilityBrainSO m_brainSO = null;
     private UtilAI.UtilityBrain m_brain = null;
+
     [SerializeField]
     private List<UtilAI.ActionSO> m_availableActions = new List<UtilAI.ActionSO>();
 
@@ -18,7 +21,7 @@ public class AIController : Controller
 
     private void Start()
     {
-        m_brain = new UtilAI.UtilityBrain(this, m_availableActions);
+        m_brain = new UtilAI.UtilityBrain(this, m_availableActions, m_brainSO);
         m_builder.BuildBuilding(m_keep, transform.position, Quaternion.identity.eulerAngles);
         m_resourceLayer = 1 << 7;
     }
