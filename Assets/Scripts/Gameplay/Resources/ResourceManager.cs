@@ -31,8 +31,10 @@ public class ResourceManager
 
     private ResourcesCollection m_resources;
     private ResourcesCollection m_spendResources;
-    public ResourceManager()
+    private Controller m_controller;
+    public ResourceManager(Controller a_controller)
     {
+        m_controller = a_controller;
         m_resources = new ResourcesCollection(75, 150, 50);
         CalcGain();
     }
@@ -56,15 +58,12 @@ public class ResourceManager
         {
             case ResourceType.food:
                 m_resources.m_food += a_amount;
-                m_spendResources.m_food += a_amount;
                 break;
             case ResourceType.wood:
                 m_resources.m_wood += a_amount;
-                m_spendResources.m_wood += a_amount;
                 break;
             case ResourceType.stone:
                 m_resources.m_stone += a_amount;
-                m_spendResources.m_stone += a_amount;
                 break;
         }
     }
@@ -74,10 +73,6 @@ public class ResourceManager
         m_resources.m_food += a_amount.m_food;
         m_resources.m_wood += a_amount.m_wood;
         m_resources.m_stone += a_amount.m_stone;
-
-        m_spendResources.m_food += a_amount.m_food;
-        m_spendResources.m_wood += a_amount.m_wood;
-        m_spendResources.m_stone += a_amount.m_stone;
     }
 
     public bool SpentResource(ResourceType a_type, int a_amount)
@@ -176,7 +171,37 @@ public class ResourceManager
     public ResourcesCollection GetResourcesGain() { return m_spendResources; }
     private void CalcGain()
     {
-        m_spendResources = new ResourcesCollection();
+        // Fetch all collection buildings and add together
+
+        int food = 0;
+        int wood = 0;
+        int stone = 0;
+
+        foreach(Buildings b in m_controller.GetBuildings)
+        {
+            BuildingBase building = b.m_building;
+            if (building.m_buildingType == BuildingType.Resource)
+            {
+                ResourceBuilding rBuilding = (ResourceBuilding)building;
+
+                switch(rBuilding.m_resourceType)
+                {
+                    case ResourceType.food:
+                        food += rBuilding.m_harvestAmount;
+                        break;
+                    case ResourceType.wood:
+                        wood += rBuilding.m_harvestAmount;
+                        break;
+                    case ResourceType.stone:
+                        stone += rBuilding.m_harvestAmount;
+                        break;
+
+                }
+            }
+        }
+
+
+        m_spendResources = new ResourcesCollection(food, wood, stone);
     }
 
     public void Update(float a_dt)

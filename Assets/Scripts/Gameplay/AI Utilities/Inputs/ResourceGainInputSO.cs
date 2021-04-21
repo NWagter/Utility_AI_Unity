@@ -14,7 +14,8 @@ namespace UtilAI
 
             float result = ResponseCurveCalculator.Calculate(Mathf.Clamp(input, 0, 1), m_curveRules, m_curveType);
 
-            Debug.Log(m_type.ToString() + " Amount gain : " + Mathf.Clamp(input, 0, 1) + " Result" + result);
+            if(m_enableDebug)
+                Debug.Log("| " + name + " | " + m_type.ToString() + " Resource Gain : " + Mathf.Clamp(input, 0, 1) + " Result " + result);
             return result;
 
         }

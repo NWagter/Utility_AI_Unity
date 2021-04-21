@@ -22,8 +22,6 @@ namespace UtilAI
         [Tooltip("x-intercept")]
         public float c;
 
-
-
         public CurveRules(float a_m = 1, float a_k = 2, float a_b = 0, float a_c = 1)
         {
             m = a_m;
@@ -43,9 +41,20 @@ namespace UtilAI
         [Tooltip("To Clamp max")]
         public float m_max = 50;
 
+        [Tooltip("Show the result and Input on this Input")]
+        public bool m_enableDebug = false;
+
         public virtual float CurveCal(UtilityBrain a_brain)
         {
             return 0;
+        }
+
+        private void OnValidate()
+        {
+            if(m_curveType == CurveType.Linear)
+            {
+                m_curveRules.k = 1;
+            }
         }
 
     }

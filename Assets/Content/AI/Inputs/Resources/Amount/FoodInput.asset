@@ -18,5 +18,6 @@ MonoBehaviour:
     k: 1
     b: 1
     c: 0
-  m_max: 200
+  m_max: 500
+  m_enableDebug: 0
   m_type: 0

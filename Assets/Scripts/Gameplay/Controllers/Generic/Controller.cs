@@ -11,6 +11,7 @@ public struct Buildings
 
 public class Controller : MonoBehaviour
 {
+    public List<Buildings> GetBuildings => m_availableBuildings;
     protected List<Buildings> m_availableBuildings = new List<Buildings>();
     public ResourceManager m_resourceManager { get; protected set; }
     public int m_controllerId { get; private set; }
@@ -20,7 +21,7 @@ public class Controller : MonoBehaviour
     {
         m_controllerId = a_id;
         m_builder = new Builder(this);
-        m_resourceManager = new ResourceManager();
+        m_resourceManager = new ResourceManager(this);
     }
 
     public void AddBuilding(BuildingBase a_building)

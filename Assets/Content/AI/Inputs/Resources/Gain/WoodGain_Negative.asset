@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c82b7ea5a6e5ec047b71a2b2bf47fe3f, type: 3}
-  m_Name: WoodGain
+  m_Name: WoodGain_Negative
   m_EditorClassIdentifier: 
   m_curveType: 0
   m_curveRules:
@@ -18,5 +18,6 @@ MonoBehaviour:
     k: 1
     b: 1
     c: 0
-  m_max: 20
+  m_max: 40
+  m_enableDebug: 0
   m_type: 1

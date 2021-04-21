@@ -5,6 +5,9 @@ public class ResourceBuilding : BuildingBase
 {
     private ResourceBuildingSO m_rBuilding = null;
     public ResourceType m_resourceType { get; private set; }
+
+    public int m_harvestAmount => _harvestAmount;
+    private int _harvestAmount = 10;
     protected override void Setup()
     {
         Debug.Log("Building : " + gameObject.name + " Has been build!");
@@ -17,7 +20,7 @@ public class ResourceBuilding : BuildingBase
 
     public void Harvest()
     {
-        m_owningController.m_resourceManager.GainResource(m_rBuilding.m_resourceType, 10);
+        m_owningController.m_resourceManager.GainResource(m_rBuilding.m_resourceType, m_harvestAmount);
         Invoke("Harvest", m_rBuilding.m_harvestTime);
     }
 }
