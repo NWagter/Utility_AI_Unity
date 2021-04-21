@@ -26,8 +26,8 @@ I use desmos to visualize my curves they can be found in the following links.
 If the link is not yet there this means I am still implementing it.
 
 
-- Linear Curve https://www.desmos.com/calculator/l4zetjui7n
-- Quadratic
+- Linear Curve https://www.desmos.com/calculator/uspjjkv9qe
+- Quadratic Curve https://www.desmos.com/calculator/abxfujakzv
 - Logistic
 - Logit
 <p align="center">
