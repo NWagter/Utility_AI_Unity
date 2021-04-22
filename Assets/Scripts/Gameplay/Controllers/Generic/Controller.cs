@@ -16,6 +16,7 @@ public class Controller : MonoBehaviour
     public ResourceManager m_resourceManager { get; protected set; }
     public int m_controllerId { get; private set; }
     public Builder m_builder { get; private set; }
+    public Transform m_buildingHolder;
 
     public void Setup(int a_id)
     {

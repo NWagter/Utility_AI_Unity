@@ -14,6 +14,7 @@ public class Builder
     {
         var building = GameObject.Instantiate(a_building.m_buildingObject, a_pos, Quaternion.Euler(a_rot));
         building.GetComponent<BuildingBase>().OnBuild(a_building, m_controller);
+        building.transform.SetParent(m_controller.m_buildingHolder);
 
         return building;
     }

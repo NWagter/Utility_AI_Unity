@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Swordman
   m_EditorClassIdentifier: 
   _name: Swordman
+  _militaryStrenght: 0.5
+  _cost:
+    m_food: 10
+    m_wood: 0
+    m_stone: 0

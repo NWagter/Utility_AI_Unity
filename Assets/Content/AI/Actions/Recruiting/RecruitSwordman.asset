@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: RecruitSwordman
   m_EditorClassIdentifier: 
   m_weightCoefficient: 1
-  m_contions: []
-  m_actionType: 0
-  m_unit: {fileID: 0}
+  m_contions:
+  - m_input: {fileID: 11400000, guid: e7d76c2260293564f9712d0d36008752, type: 2}
+  - m_input: {fileID: 11400000, guid: 13e745611c6294a4bb760513e45b3a4d, type: 2}
+  - m_input: {fileID: 11400000, guid: fd578403735e0b44bbc50939fef69c47, type: 2}
+  m_actionType: 1
+  m_unit: {fileID: 11400000, guid: 1123af2d58741df48bff141055076fdc, type: 2}
