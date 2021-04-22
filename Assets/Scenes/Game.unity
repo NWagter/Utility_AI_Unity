@@ -478,7 +478,7 @@ MonoBehaviour:
     taken: 1
   - spawnPoint: {fileID: 496588650}
     taken: 1
-  m_enemyObject: {fileID: 7372024425731537978, guid: 7bedcf9cdd044a74c80a96ec693074ee, type: 3}
+  m_enemyObject: {fileID: 7372024425731537978, guid: 3db67e94e96894840b0f0aed60079acd, type: 3}
 --- !u!4 &214787250
 Transform:
   m_ObjectHideFlags: 0

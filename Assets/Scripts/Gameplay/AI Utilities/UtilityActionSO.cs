@@ -7,6 +7,7 @@ namespace UtilAI
     public enum ActionType
     {
         Building,
+        Recruit
     }
 
     [System.Serializable]

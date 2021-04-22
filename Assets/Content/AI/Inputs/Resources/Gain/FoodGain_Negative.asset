@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0976a341a6cf37647b3d82b2088df2e1, type: 3}
-  m_Name: Brain_Crazy
+  m_Script: {fileID: 11500000, guid: c82b7ea5a6e5ec047b71a2b2bf47fe3f, type: 3}
+  m_Name: FoodGain_Negative
   m_EditorClassIdentifier: 
-  _minOffset: 0
-  _maxOffset: 4
+  m_curveType: 0
+  m_curveRules:
+    m: -1
+    k: 1
+    b: 1
+    c: 0
+  m_max: 100
+  m_enableDebug: 0
+  m_type: 0

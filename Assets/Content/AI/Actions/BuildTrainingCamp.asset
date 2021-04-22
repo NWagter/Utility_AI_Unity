@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaf71967e2875048bf510035508da92, type: 3}
+  m_Name: BuildTrainingCamp
+  m_EditorClassIdentifier: 
+  m_weightCoefficient: 1
+  m_contions:
+  - m_input: {fileID: 11400000, guid: 13e745611c6294a4bb760513e45b3a4d, type: 2}
+  - m_input: {fileID: 11400000, guid: a69870ee27234854ab405d070b53376b, type: 2}
+  m_actionType: 0
+  m_building: {fileID: 11400000, guid: 7c93d91586a18c0409aa39ead4bdd8a7, type: 2}

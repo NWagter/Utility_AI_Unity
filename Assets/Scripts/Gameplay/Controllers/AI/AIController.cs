@@ -54,7 +54,7 @@ public class AIController : Controller
                             {
                                 case ResourceType.food:
                                     // Open area within a x range of keep
-                                    return FindFarmSpot(b.m_location, 50, 75);
+                                    return FindFarmSpot(b.m_location, 50, 35);
                                 case ResourceType.wood:
                                     // Area with an x amount of trees in range of the keep
                                     return FindSawmillSpot(b.m_location, 50, 10, 3);
@@ -64,9 +64,8 @@ public class AIController : Controller
                         break;
                     case BuildingType.Military:
                         {
-
+                            return FindBuildingSpot(b.m_location, 50, 10);
                         }
-                        break;
                 }
             }
         }
@@ -154,6 +153,29 @@ public class AIController : Controller
         if(!canPlace)
         {
             return Vector3.zero;
+        }
+
+        return location;
+    }
+
+    Vector3 FindBuildingSpot(Vector3 a_keep, float a_radius, float a_size)
+    {
+        Vector3 location = Vector3.zero;
+
+
+        location = (Random.onUnitSphere * a_radius) + a_keep;
+        location.y = a_keep.y;
+
+        RaycastHit[] outhit = Physics.SphereCastAll(location, a_size, transform.forward);
+        if (outhit.Length > 0)
+        {
+            foreach(RaycastHit hit in outhit)
+            {
+                if (CheckResourceType(hit.collider.gameObject, ResourceType.wood) || hit.collider.GetComponent<BuildingBase>() != null)
+                {
+                    return Vector3.zero;
+                }
+            }
         }
 
         return location;

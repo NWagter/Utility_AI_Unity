@@ -3,7 +3,7 @@
 namespace UtilAI
 {
     [CreateAssetMenu(fileName = "Brain", menuName = "AI/Utilities/Brain/Brain", order = 1)]
-    public class UtilityBrainSO : ScriptableObject
+    public class UtilityBrainSO : ContentSO
     {
         public float m_minOffset => _minOffset;
         public float m_maxOffset => _maxOffset;

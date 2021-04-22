@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResourceBuilding", menuName = "Buildings/Resource Building", order = 1)]
+[CreateAssetMenu(fileName = "ResourceBuilding", menuName = "Content/Buildings/Resource Building", order = 1)]
 public class ResourceBuildingSO : BuildingSO
 {
     public float m_harvestTime => _harvestTime;
