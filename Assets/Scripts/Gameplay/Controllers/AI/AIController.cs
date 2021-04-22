@@ -19,6 +19,9 @@ public class AIController : Controller
     public float getBuildingTimer => m_buildTimer;
     private float m_buildTimer = 0.5f;
 
+    public float getMilitaryStrenght => m_militaryStrenght;
+    private float m_militaryStrenght = 0;
+
     private void Start()
     {
         m_brain = new UtilAI.UtilityBrain(this, m_availableActions, m_brainSO);
@@ -33,6 +36,12 @@ public class AIController : Controller
 
         m_brain.UpdateBrain(Time.deltaTime);
         m_resourceManager.Update(Time.deltaTime);
+    }
+
+    public void RecruitUnit(UnitSO a_unit)
+    {
+        if(m_resourceManager.SpentResource(a_unit.m_cost))
+            m_militaryStrenght += a_unit.m_militaryStrenght;
     }
 
     public Vector3 FindBuildingSpot(BuildingSO a_building)

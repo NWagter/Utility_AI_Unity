@@ -79,7 +79,7 @@ namespace UtilAI
                 }
 
                 //if (posAction.m_weight != 0 && posAction.m_weight > weight)
-                if (posAction.m_weight >= weight)
+                if (posAction.m_weight > weight)
                 {
                     weight = w;
                     action = posAction;

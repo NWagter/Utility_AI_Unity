@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UtilAI
 {
-    [CreateAssetMenu(fileName = "UnitProductionInput", menuName = "AI/Utilities/Input/UnitProduction/Queue", order = 1)]
+    [CreateAssetMenu(fileName = "UnitProductionInput", menuName = "AI/Utilities/Input/Military/UnitProductionInput", order = 1)]
     public class UnitProductionQueueInputSO : InputSO
     {
         public override float CurveCal(UtilityBrain a_brain)

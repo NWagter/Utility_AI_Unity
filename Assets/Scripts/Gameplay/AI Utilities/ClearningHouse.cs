@@ -27,5 +27,13 @@ namespace UtilAI
             return queue;
         }
 
+        public static float MilitaryStrenght(UtilityBrain a_brain)
+        {
+            // Calculate this together with the strenght of the enemy to get a better result when introduction enemies
+            float strenght = a_brain.m_controller.getMilitaryStrenght;
+
+            return strenght;
+        }
+
     }
 }
