@@ -6,14 +6,14 @@ The is an Unity project where I am creating a small RTS like game with 2 AIs col
 # Planning
 - Setup the structure for the Utility AI
 - Curves
-  -   Linear
-  -   Quadratic
+  -   :white_check_mark: Linear 
+  -   :white_check_mark: Quadratic
   -   Logistic
   -   Logit
 - Enemy Actions
-  -   Build Resource Buildings
+  -   :white_check_mark: Build Resource Buildings
   -   Expand territory
-  -   Build Armies
+  -   :white_check_mark: Build Armies
   -   Defeat the opponent
 
 <p align="center">
