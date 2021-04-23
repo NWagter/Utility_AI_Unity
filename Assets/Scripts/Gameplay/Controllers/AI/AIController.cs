@@ -51,7 +51,7 @@ public class AIController : Controller
             }
         }
 
-        if (building != null && m_resourceManager.SpentResource(a_unit.m_cost))
+        if (building != null && m_resourceManager.SpentResource(a_unit.getCost))
         {
             building.RecruitUnit(a_unit);
         }
@@ -66,11 +66,11 @@ public class AIController : Controller
         {
             if (b.m_building.m_buildingType == BuildingType.Keep)
             {
-                switch (a_building.m_buildingType)
+                switch (a_building.getBuildingType)
                 {
                     case BuildingType.Resource:
                         {
-                            ResourceType type = ((ResourceBuildingSO)a_building).m_resourceType;
+                            ResourceType type = ((ResourceBuildingSO)a_building).getResourceType;
 
                             switch (type)
                             {
@@ -98,7 +98,7 @@ public class AIController : Controller
     {
         Vector3 location = FindBuildingSpot(a_building);
 
-        if (location != Vector3.zero && m_resourceManager.SpentResource(a_building.m_cost)) // double check if resources still available
+        if (location != Vector3.zero && m_resourceManager.SpentResource(a_building.getCost)) // double check if resources still available
         {
             m_buildTimer = 1.5f;
             m_builder.BuildBuilding(a_building, location, new Vector3(0, 0, 0));
@@ -205,7 +205,7 @@ public class AIController : Controller
 
     private bool CheckResourceType(GameObject a_object, ResourceType a_type)
     {
-        if (a_object.GetComponent<ResourceObject>() && a_object.GetComponent<ResourceObject>().m_resourceType == a_type)
+        if (a_object.GetComponent<ResourceObject>() && a_object.GetComponent<ResourceObject>().getResourceType == a_type)
         {
             return true;
         }

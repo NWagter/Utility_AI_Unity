@@ -47,7 +47,7 @@ public class UnitProductionBuilding : BuildingBase
             {
                 m_productionQueue.Dequeue();
                 // Recruit Unit
-                BaseUnit unit = Instantiate(item.m_unit.m_unitObject, transform.position, Quaternion.identity).GetComponent<BaseUnit>();
+                BaseUnit unit = Instantiate(item.m_unit.getUnitObject, transform.position, Quaternion.identity).GetComponent<BaseUnit>();
                 unit.Setup(item.m_unit);
                 unit.Navigate(transform.position + m_rallyPoint);
 
@@ -61,13 +61,13 @@ public class UnitProductionBuilding : BuildingBase
 
     public bool RecruitUnit(UnitSO a_unit)
     {
-        m_productionQueue.Enqueue(new ProductionItem(a_unit, a_unit.m_buildTime));
+        m_productionQueue.Enqueue(new ProductionItem(a_unit, a_unit.getBuildTime));
 
         return true;
     }
 
     public bool QueueAvailable()
     {
-        return (m_productionQueue.Count < m_uBuilding.m_maxQueue);
+        return (m_productionQueue.Count < m_uBuilding.getMaxQueue);
     }
 }

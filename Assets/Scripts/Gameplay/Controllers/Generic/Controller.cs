@@ -50,12 +50,12 @@ public class Controller : MonoBehaviour
     }
     public void AddUnit(BaseUnit a_unit)
     {
-        m_militaryStrenght += a_unit.m_unitSo.m_militaryStrenght;
+        m_militaryStrenght += a_unit.getUnitSo.getMilitaryStrenght;
         m_availableUnits.Add(a_unit);
     }
     public void RemoveBuilding(BaseUnit a_unit)
     {
-        m_militaryStrenght -= a_unit.m_unitSo.m_militaryStrenght;
+        m_militaryStrenght -= a_unit.getUnitSo.getMilitaryStrenght;
         m_availableUnits.Remove(a_unit);
     }
 }

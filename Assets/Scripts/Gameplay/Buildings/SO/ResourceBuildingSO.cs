@@ -3,12 +3,12 @@
 [CreateAssetMenu(fileName = "ResourceBuilding", menuName = "Content/Buildings/Resource Building", order = 1)]
 public class ResourceBuildingSO : BuildingSO
 {
-    public float m_harvestTime => _harvestTime;
-    public ResourceType m_resourceType => _resourceType;
+    public float getHarvestTime => m_harvestTime;
+    public ResourceType getResourceType => m_resourceType;
 
     [SerializeField]
-    private float _harvestTime;
+    private float m_harvestTime;
 
     [SerializeField]
-    private ResourceType _resourceType;
+    private ResourceType m_resourceType;
 }

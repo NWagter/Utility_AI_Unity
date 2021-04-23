@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b836f6085e18b5409417e782685eb4f, type: 3}
-  m_Name: Keep
+  m_Script: {fileID: 11500000, guid: bc2625f1808b0384b813d222674018d9, type: 3}
+  m_Name: Creep
   m_EditorClassIdentifier: 
-  m_buildingObject: {fileID: 6749678930291164074, guid: f2e5a0cc114e37e479f78db58eb4ff48, type: 3}
-  m_cost:
-    m_food: 0
-    m_wood: 0
-    m_stone: 0
-  m_buildingType: 2
+  m_amountOfCreeps: 2
+  m_respawnTime: 10
+  m_name: Creep
+  m_creepObject: {fileID: 5382742258149816505, guid: 08f37f4d6e9ce46419f57a55c0f52380, type: 3}
+  m_strenght: 2

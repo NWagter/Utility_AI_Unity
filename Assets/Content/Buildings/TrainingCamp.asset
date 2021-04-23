@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff63daa6d3776e47ad0a6cb74bcfa5e, type: 3}
   m_Name: TrainingCamp
   m_EditorClassIdentifier: 
-  _buildingObject: {fileID: 4006736191233629112, guid: 3f25af43bd7e8a9409483a2a18147fdb, type: 3}
-  _cost:
+  m_buildingObject: {fileID: 4006736191233629112, guid: 3f25af43bd7e8a9409483a2a18147fdb, type: 3}
+  m_cost:
     m_food: 0
-    m_wood: 50
+    m_wood: 60
     m_stone: 0
-  _buildingType: 1
-  _unit: {fileID: 11400000, guid: 1123af2d58741df48bff141055076fdc, type: 2}
-  _maxQueue: 2
+  m_buildingType: 1
+  m_unit: {fileID: 11400000, guid: 1123af2d58741df48bff141055076fdc, type: 2}
+  m_maxQueue: 2

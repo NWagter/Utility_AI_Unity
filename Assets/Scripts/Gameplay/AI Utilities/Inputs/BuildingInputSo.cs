@@ -7,7 +7,7 @@ namespace UtilAI
     [CreateAssetMenu(fileName = "BuildingInput", menuName = "AI/Utilities/Input/BuildingInput", order = 1)]
     public class BuildingInputSO : InputSO
     {
-        public BuildingSO a_building;
+        public BuildingSO m_building;
 
         public override float CurveCal(UtilityBrain a_brain)
         {

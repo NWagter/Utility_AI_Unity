@@ -3,11 +3,11 @@
 [CreateAssetMenu(fileName = "UnitProductionBuilding", menuName = "Content/Buildings/Unit Production Building", order = 1)]
 public class UnitProductionBuildingSO : BuildingSO
 {
-    public UnitSO m_unit => _unit;
-    public int m_maxQueue => _maxQueue;
+    public UnitSO getUnit => m_unit;
+    public int getMaxQueue => m_maxQueue;
 
     [SerializeField]
-    private UnitSO _unit;
+    private UnitSO m_unit;
     [SerializeField]
-    private int _maxQueue = 5;
+    private int m_maxQueue = 5;
 }

@@ -11,7 +11,7 @@ public class BuildingBase : MonoBehaviour
 
     public void OnBuild(BuildingSO a_building, Controller a_controller)
     {
-        m_buildingType = a_building.m_buildingType;
+        m_buildingType = a_building.getBuildingType;
         m_building = a_building;
         m_owningController = a_controller;
         m_owningController.AddBuilding(this);

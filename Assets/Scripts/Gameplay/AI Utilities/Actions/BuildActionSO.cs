@@ -11,7 +11,7 @@ namespace UtilAI
 
         public override float CalcWeight(UtilityBrain a_brain)
         {
-            if(!a_brain.m_resourceManager.CanSpend(m_building.m_cost)) // don't have resources don't consider
+            if(!a_brain.m_resourceManager.CanSpend(m_building.getCost)) // don't have resources don't consider
             {
                 return -1;
             }

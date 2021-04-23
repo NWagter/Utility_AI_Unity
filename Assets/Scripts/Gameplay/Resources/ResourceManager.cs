@@ -187,13 +187,13 @@ public class ResourceManager
                 switch(rBuilding.m_resourceType)
                 {
                     case ResourceType.food:
-                        food += rBuilding.m_harvestAmount;
+                        food += rBuilding.getHarvestAmount;
                         break;
                     case ResourceType.wood:
-                        wood += rBuilding.m_harvestAmount;
+                        wood += rBuilding.getHarvestAmount;
                         break;
                     case ResourceType.stone:
-                        stone += rBuilding.m_harvestAmount;
+                        stone += rBuilding.getHarvestAmount;
                         break;
 
                 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ResourceObject : MonoBehaviour
 {
-    public ResourceType m_resourceType => _type;
+    public ResourceType getResourceType => m_type;
 
     [SerializeField]
-    private ResourceType _type;
+    private ResourceType m_type;
 }

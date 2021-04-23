@@ -74,7 +74,7 @@ namespace UtilAI
                 if (m_brainSO != null)
                 {
                     Debug.Log("Before | " + m_brainSO.name + " | " + posAction.m_action.name + " : " + w);
-                    w += Random.Range(m_brainSO.m_minOffset, m_brainSO.m_maxOffset);
+                    w += Random.Range(m_brainSO.getMinOffset, m_brainSO.getMaxOffset);
                     Debug.Log("After | " + m_brainSO.name +" | " + posAction.m_action.name + " : " + w);
                 }
 

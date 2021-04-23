@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c77f1c4efb8c2c4eb627b7f30af7422, type: 3}
   m_Name: Swordman
   m_EditorClassIdentifier: 
-  _name: Swordman
-  _militaryStrenght: 0.5
-  _unitObject: {fileID: 8012068409109412047, guid: 4b3daf5790173014d8a8d2e251afbdd6, type: 3}
-  _cost:
-    m_food: 10
+  m_name: Swordman
+  m_militaryStrenght: 0.5
+  m_unitObject: {fileID: 8012068409109412047, guid: 4b3daf5790173014d8a8d2e251afbdd6, type: 3}
+  m_cost:
+    m_food: 20
     m_wood: 0
     m_stone: 0
-  _buildTime: 2
+  m_buildTime: 2

@@ -9,15 +9,15 @@ public enum BuildingType
 
 public class BuildingSO : ContentSO
 {
-    public ResourcesCollection m_cost => _cost;
-    public BuildingType m_buildingType => _buildingType;
+    public ResourcesCollection getCost => m_cost;
+    public BuildingType getBuildingType => m_buildingType;
 
-    public GameObject m_buildingObject => _buildingObject;
+    public GameObject getBuildingObject => m_buildingObject;
 
     [SerializeField]
-    private GameObject _buildingObject = null;
+    private GameObject m_buildingObject = null;
     [SerializeField]
-    private ResourcesCollection _cost;
+    private ResourcesCollection m_cost;
     [SerializeField]
-    private BuildingType _buildingType;
+    private BuildingType m_buildingType;
 }

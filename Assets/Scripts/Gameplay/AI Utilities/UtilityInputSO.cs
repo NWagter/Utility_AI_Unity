@@ -33,7 +33,6 @@ namespace UtilAI
 
     public class InputSO : ContentSO
     {
-
         [Tooltip("Curve Used")]
         public CurveType m_curveType = CurveType.Linear;
         public CurveRules m_curveRules = new CurveRules(1,2,0,1);
@@ -51,7 +50,7 @@ namespace UtilAI
 
         private void OnValidate()
         {
-            if(m_curveType == CurveType.Linear)
+            if (m_curveType == CurveType.Linear)
             {
                 m_curveRules.k = 1;
             }

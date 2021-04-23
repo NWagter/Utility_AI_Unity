@@ -8,8 +8,8 @@ public class BaseUnit : MonoBehaviour
 {
     private NavMeshAgent m_agent = null;
 
-    public UnitSO m_unitSo => _unitSo;
-    private UnitSO _unitSo;
+    public UnitSO getUnitSo => m_unitSo;
+    private UnitSO m_unitSo;
 
 
     private void Awake()
@@ -18,7 +18,7 @@ public class BaseUnit : MonoBehaviour
     }
     public void Setup(UnitSO a_unitSO)
     {
-        _unitSo = a_unitSO;
+        m_unitSo = a_unitSO;
     }
 
     public void Navigate(Vector3 a_point)
