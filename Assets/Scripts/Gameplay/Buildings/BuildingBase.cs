@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class BuildingBase : MonoBehaviour
+public class BuildingBase : MonoBehaviour, ITargetable
 {
     protected BuildingSO m_building = null;
 

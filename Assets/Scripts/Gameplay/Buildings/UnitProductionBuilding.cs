@@ -48,8 +48,7 @@ public class UnitProductionBuilding : BuildingBase
                 m_productionQueue.Dequeue();
                 // Recruit Unit
                 BaseUnit unit = Instantiate(item.m_unit.getUnitObject, transform.position, Quaternion.identity).GetComponent<BaseUnit>();
-                unit.Setup(item.m_unit);
-                unit.Navigate(transform.position + m_rallyPoint);
+                unit.Setup(item.m_unit, transform.position + m_rallyPoint);
 
                 m_owningController.AddUnit(unit);
                 m_timer = 0;

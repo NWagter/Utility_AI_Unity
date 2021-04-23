@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UtilAI;
 
 public class AIController : Controller
 {
@@ -27,13 +28,48 @@ public class AIController : Controller
         m_resourceLayer = 1 << 7;
     }
 
-    private void Update()
+    public void Attack(AttackType m_attackType)
+    {
+        if (m_attackType != AttackType.Creep)
+            return;
+
+        CreepLayer layer = null;
+        foreach(CreepLayer cLayer in getGameManager.GetCreepLayers())
+        {
+            if(layer == null || (layer.getStrenght < cLayer.getStrenght))
+            {
+                layer = cLayer;
+            }
+        }
+
+        //Create Squad
+        List<BaseUnit> units = new List<BaseUnit>();
+
+        float strenght = 0;
+        foreach(BaseUnit unit in m_availableUnits)
+        {
+            if((layer.getStrenght * 1.2) < strenght)
+            {
+                break;
+            }
+
+            units.Add(unit);
+            strenght += unit.getUnitSo.getMilitaryStrenght;
+        }
+
+        Squad squad = new Squad(this, units, layer.gameObject);
+        m_squads.Add(squad);
+    }
+
+    protected override void Update()
     {
         if(m_buildTimer > 0)
             m_buildTimer -= Time.deltaTime;
 
         m_brain.UpdateBrain(Time.deltaTime);
         m_resourceManager.Update(Time.deltaTime);
+
+        base.Update();
     }
 
     public void RecruitUnit(UnitSO a_unit)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CreepLayer : MonoBehaviour
+public class CreepLayer : MonoBehaviour, ITargetable
 {
     [SerializeField]
     private CreepSO m_creep = null;

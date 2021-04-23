@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class BaseCreep : MonoBehaviour
+public class BaseCreep : MonoBehaviour, ITargetable
 {
     private NavMeshAgent m_agent = null;
 
