@@ -55,11 +55,12 @@ public class Squad
         m_ownerController.RemoveSquad(this);
     }
 
-    public void UpdateSquad()
+    public bool UpdateSquad()
     {
         if (m_target == null)
         {
             OnDisband();
+            return false;
         }
 
         if (m_sState == SquadState.Idle)
@@ -85,6 +86,7 @@ public class Squad
             GameObject.Destroy(m_target);
         }
 
+        return true;
     }
 
     private void MoveToTarget(bool a_stop = false)

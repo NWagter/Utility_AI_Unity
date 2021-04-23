@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
 
     public void RemoveCreep(GameObject a_target)
     {
+        if (a_target == null)
+            return;
+
         m_creepLayers.Remove(a_target.GetComponent<CreepLayer>());
     }
 }

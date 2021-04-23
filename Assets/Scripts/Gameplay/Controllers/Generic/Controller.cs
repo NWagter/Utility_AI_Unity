@@ -68,14 +68,14 @@ public class Controller : MonoBehaviour
     public void RemoveSquad(Squad a_squad)
     {
         m_squads.Remove(a_squad);
-        a_squad = null;
     }
 
     protected virtual void Update()
     {
         foreach(Squad s in m_squads)
         {
-            s.UpdateSquad();
+            if (!s.UpdateSquad())
+                break;
         }
     }
 }

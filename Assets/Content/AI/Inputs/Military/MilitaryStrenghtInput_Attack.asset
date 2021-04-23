@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ccd839cbab460d40b6287231190c172, type: 3}
-  m_Name: MilitaryStrenghtInput
+  m_Name: MilitaryStrenghtInput_Attack
   m_EditorClassIdentifier: 
   m_curveType: 0
   m_curveRules:
-    m: -1
+    m: 1
     k: 1
-    b: 1
+    b: 0
     c: 0
-  m_max: 10
+  m_max: 2
   m_enableDebug: 0
