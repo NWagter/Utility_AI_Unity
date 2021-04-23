@@ -19,3 +19,4 @@ MonoBehaviour:
     m_stone: 0
   _buildingType: 1
   _unit: {fileID: 11400000, guid: 1123af2d58741df48bff141055076fdc, type: 2}
+  _maxQueue: 2

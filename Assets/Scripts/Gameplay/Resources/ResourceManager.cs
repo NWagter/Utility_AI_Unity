@@ -177,7 +177,7 @@ public class ResourceManager
         int wood = 0;
         int stone = 0;
 
-        foreach(Buildings b in m_controller.GetBuildings)
+        foreach(Buildings b in m_controller.getBuildings)
         {
             BuildingBase building = b.m_building;
             if (building.m_buildingType == BuildingType.Resource)

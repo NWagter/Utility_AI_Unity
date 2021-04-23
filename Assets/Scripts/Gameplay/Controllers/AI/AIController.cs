@@ -19,8 +19,6 @@ public class AIController : Controller
     public float getBuildingTimer => m_buildTimer;
     private float m_buildTimer = 0.5f;
 
-    public float getMilitaryStrenght => m_militaryStrenght;
-    private float m_militaryStrenght = 0;
 
     private void Start()
     {
@@ -40,8 +38,23 @@ public class AIController : Controller
 
     public void RecruitUnit(UnitSO a_unit)
     {
-        if(m_resourceManager.SpentResource(a_unit.m_cost))
-            m_militaryStrenght += a_unit.m_militaryStrenght;
+        UnitProductionBuilding building = null;
+
+        foreach (Buildings b in m_availableBuildings)
+        {
+            if (b.m_building.m_buildingType == BuildingType.Military)
+            {
+                building = (UnitProductionBuilding)b.m_building;
+
+                if (!building.QueueAvailable())
+                    building = null;
+            }
+        }
+
+        if (building != null && m_resourceManager.SpentResource(a_unit.m_cost))
+        {
+            building.RecruitUnit(a_unit);
+        }
     }
 
     public Vector3 FindBuildingSpot(BuildingSO a_building)

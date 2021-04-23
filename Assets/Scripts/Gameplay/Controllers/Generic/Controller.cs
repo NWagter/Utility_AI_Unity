@@ -11,12 +11,16 @@ public struct Buildings
 
 public class Controller : MonoBehaviour
 {
-    public List<Buildings> GetBuildings => m_availableBuildings;
+    public List<Buildings> getBuildings => m_availableBuildings;
     protected List<Buildings> m_availableBuildings = new List<Buildings>();
+    public List<BaseUnit> getUnits => m_availableUnits;
+    protected List<BaseUnit> m_availableUnits = new List<BaseUnit>();
     public ResourceManager m_resourceManager { get; protected set; }
     public int m_controllerId { get; private set; }
     public Builder m_builder { get; private set; }
     public Transform m_buildingHolder;
+    public float getMilitaryStrenght => m_militaryStrenght;
+    protected float m_militaryStrenght = 0;
 
     public void Setup(int a_id)
     {
@@ -33,7 +37,6 @@ public class Controller : MonoBehaviour
             m_location = a_building.transform.position
         });
     }
-
     public void RemoveBuilding(BuildingBase a_building)
     {
         foreach(Buildings b in m_availableBuildings)
@@ -45,5 +48,14 @@ public class Controller : MonoBehaviour
             }
         }
     }
-
+    public void AddUnit(BaseUnit a_unit)
+    {
+        m_militaryStrenght += a_unit.m_unitSo.m_militaryStrenght;
+        m_availableUnits.Add(a_unit);
+    }
+    public void RemoveBuilding(BaseUnit a_unit)
+    {
+        m_militaryStrenght -= a_unit.m_unitSo.m_militaryStrenght;
+        m_availableUnits.Remove(a_unit);
+    }
 }

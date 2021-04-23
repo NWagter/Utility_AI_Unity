@@ -29,15 +29,6 @@ public class CoreBuilding : BuildingBase
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        foreach (Vector3 point in m_buildPoints)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(point, 5);
-        }
-    }
-
     public bool SpotLeft() { return (m_buildPoints.Count > 0); }
 
     public Vector3 GetBuildSpot()

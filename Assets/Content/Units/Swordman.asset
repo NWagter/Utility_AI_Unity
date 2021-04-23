@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Swordman
   _militaryStrenght: 0.5
+  _unitObject: {fileID: 8012068409109412047, guid: 4b3daf5790173014d8a8d2e251afbdd6, type: 3}
   _cost:
     m_food: 10
     m_wood: 0
     m_stone: 0
+  _buildTime: 2

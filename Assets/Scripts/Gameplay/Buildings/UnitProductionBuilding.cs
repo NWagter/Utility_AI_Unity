@@ -18,16 +18,18 @@ public class UnitProductionBuilding : BuildingBase
 
     private UnitProductionBuildingSO m_uBuilding = null;
 
+    [SerializeField]
     private Vector3 m_rallyPoint = Vector3.zero;
 
     private Queue<ProductionItem> m_productionQueue = new Queue<ProductionItem>();
+
+    private float m_timer;
 
     protected override void Setup()
     {
         Debug.Log("Building : " + gameObject.name + " Has been build!");
 
         m_uBuilding = (UnitProductionBuildingSO)m_building;
-        m_rallyPoint = transform.position + (transform.forward * -10);
     }
 
     private void OnDrawGizmos()
@@ -36,9 +38,36 @@ public class UnitProductionBuilding : BuildingBase
         Gizmos.DrawWireSphere(m_rallyPoint, 5);
     }
 
+    private void Update()
+    {
+        if(m_productionQueue.Count > 0)
+        {
+            ProductionItem item = m_productionQueue.Peek();
+            if(m_timer >= item.m_productionTime)
+            {
+                m_productionQueue.Dequeue();
+                // Recruit Unit
+                BaseUnit unit = Instantiate(item.m_unit.m_unitObject, transform.position, Quaternion.identity).GetComponent<BaseUnit>();
+                unit.Setup(item.m_unit);
+                unit.Navigate(transform.position + m_rallyPoint);
+
+                m_owningController.AddUnit(unit);
+                m_timer = 0;
+            }
+
+            m_timer += Time.deltaTime;
+        }
+    }
+
+    public bool RecruitUnit(UnitSO a_unit)
+    {
+        m_productionQueue.Enqueue(new ProductionItem(a_unit, a_unit.m_buildTime));
+
+        return true;
+    }
+
     public bool QueueAvailable()
     {
         return (m_productionQueue.Count < m_uBuilding.m_maxQueue);
     }
-
 }

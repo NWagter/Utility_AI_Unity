@@ -13,7 +13,7 @@ namespace UtilAI
         {
             float queue = 0;
 
-            foreach(Buildings b in a_brain.m_controller.GetBuildings)
+            foreach(Buildings b in a_brain.m_controller.getBuildings)
             {
                 if(b.m_building.m_buildingType == BuildingType.Military)
                 {
