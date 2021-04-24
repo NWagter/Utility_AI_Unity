@@ -4,6 +4,7 @@ using Unity;
 
 public class UnitProductionBuilding : BuildingBase
 {
+    [System.Serializable]
     public struct ProductionItem
     {
         public UnitSO m_unit;

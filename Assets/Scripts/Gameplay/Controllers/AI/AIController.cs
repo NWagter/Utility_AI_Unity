@@ -80,10 +80,13 @@ public class AIController : Controller
         {
             if (b.m_building.m_buildingType == BuildingType.Military)
             {
-                building = (UnitProductionBuilding)b.m_building;
+                var pBuilding = (UnitProductionBuilding)b.m_building;
 
-                if (!building.QueueAvailable())
-                    building = null;
+                if (pBuilding.QueueAvailable())
+                {
+                    building = pBuilding;
+                    break;
+                }
             }
         }
 
@@ -112,17 +115,17 @@ public class AIController : Controller
                             {
                                 case ResourceType.food:
                                     // Open area within a x range of keep
-                                    return FindFarmSpot(b.m_location, 50, 35);
+                                    return FindFarmSpot(b.m_location, 70, 15, 25);
                                 case ResourceType.wood:
                                     // Area with an x amount of trees in range of the keep
-                                    return FindSawmillSpot(b.m_location, 50, 10, 3);
+                                    return FindSawmillSpot(b.m_location, 50, 15, 10, 3);
                             }
 
                         }
                         break;
                     case BuildingType.Military:
                         {
-                            return FindBuildingSpot(b.m_location, 50, 10);
+                            return FindBuildingSpot(b.m_location, 50, 25);
                         }
                 }
             }
@@ -142,13 +145,13 @@ public class AIController : Controller
 
     }
 
-    Vector3 FindSawmillSpot(Vector3 a_keep, float a_radius, float a_sawRange, int a_minTrees)
+    Vector3 FindSawmillSpot(Vector3 a_keep, float a_radius, float a_size, float a_sawRange, int a_minTrees)
     {
         Vector3 location = Vector3.zero;
 
         bool canPlace = true;
 
-        location = (Random.onUnitSphere * a_radius) + a_keep;
+        location = (Random.onUnitSphere * Random.Range(a_radius * 0.5f, a_radius)) + a_keep;
         location.y = a_keep.y;
 
 
@@ -169,13 +172,9 @@ public class AIController : Controller
 
         foreach (Buildings b in m_availableBuildings)
         {
-            if(b.m_building.m_buildingType == BuildingType.Resource
-                && ((ResourceBuilding)b.m_building).m_resourceType == ResourceType.wood)
+            if (Vector3.Distance(location, b.m_location) < a_size)
             {
-                if (Vector3.Distance(location, b.m_location) < a_sawRange)
-                {
-                    canPlace = false;
-                }
+                canPlace = false;
             }
         }
 
@@ -187,24 +186,22 @@ public class AIController : Controller
         return location;
     }
 
-    Vector3 FindFarmSpot(Vector3 a_keep, float a_radius, float a_minFarmDistance, int it = 0)
+    Vector3 FindFarmSpot(Vector3 a_keep, float a_radius, float a_size, float a_minFarmDistance, int it = 0)
     {
         Vector3 location = Vector3.zero;
         bool canPlace = true;
 
-        location = (Random.onUnitSphere * a_radius) + a_keep;
+        location = (Random.onUnitSphere * Random.Range(a_radius * 0.5f, a_radius)) + a_keep;
         location.y = a_keep.y;
 
 
         foreach (Buildings b in m_availableBuildings)
         {
-            if(b.m_building.m_buildingType == BuildingType.Resource
-                && ((ResourceBuilding)b.m_building).m_resourceType == ResourceType.food)
+            if (Vector3.Distance(location, b.m_location) < a_size ||
+                (Vector3.Distance(location, b.m_location) < a_minFarmDistance
+                && (b.m_building.m_buildingType == BuildingType.Resource && ((ResourceBuilding)b.m_building).m_resourceType == ResourceType.food)))
             {
-                if(Vector3.Distance(location, b.m_location) < a_minFarmDistance)
-                {
-                    canPlace = false;
-                }
+                canPlace = false;
             }
         }
 
@@ -221,18 +218,14 @@ public class AIController : Controller
         Vector3 location = Vector3.zero;
 
 
-        location = (Random.onUnitSphere * a_radius) + a_keep;
+        location = (Random.onUnitSphere * Random.Range(a_radius * 0.5f, a_radius)) + a_keep;
         location.y = a_keep.y;
 
-        RaycastHit[] outhit = Physics.SphereCastAll(location, a_size, transform.forward);
-        if (outhit.Length > 0)
+        foreach (Buildings b in m_availableBuildings)
         {
-            foreach(RaycastHit hit in outhit)
+            if (Vector3.Distance(location, b.m_location) < a_size)
             {
-                if (CheckResourceType(hit.collider.gameObject, ResourceType.wood) || hit.collider.GetComponent<BuildingBase>() != null)
-                {
-                    return Vector3.zero;
-                }
+                return Vector3.zero;
             }
         }
 
