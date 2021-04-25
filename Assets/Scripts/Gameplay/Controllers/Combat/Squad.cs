@@ -40,7 +40,6 @@ public class Squad
         m_targetObject = m_target.GetTargetObject();
         m_sState = SquadState.Idle;
 
-        Vector3 c = Vector3.zero;
         m_active = true;
 
         foreach (BaseUnit unit in m_units)
@@ -56,10 +55,9 @@ public class Squad
 
             unit.SetSqaud(this);
             m_strenght += unit.getUnitSo.getMilitaryStrenght;
-            c += unit.transform.position;
         }
 
-        centroid = c / m_units.Count;
+        CalcCentroid();
     }
 
     public void OnDisband()
@@ -81,6 +79,9 @@ public class Squad
         {
             foreach (BaseUnit unit in m_units)
             {
+                if (unit == null)
+                    continue;
+
                 m_ownerController.AddUnit(unit);
                 unit.RemoveSquad();
                 unit.ReturnToSpawn();
@@ -94,48 +95,51 @@ public class Squad
 
     public bool UpdateSquad()
     {
-        List<ITargetable> targetables = CombatHelper.SearchForTargets(centroid, m_detectionRadius, m_ownerController);
-
-        if (targetables.Count > 0)
+        if (m_targetObject == null || Time.frameCount % 16 == 0)
         {
-            //New Target gernal Target
-            if (m_targetObject == null)
+            List<ITargetable> targetables = CombatHelper.SearchForTargets(centroid, m_detectionRadius, m_ownerController);
+
+            if (targetables.Count > 0)
             {
-                m_sState = SquadState.Idle;
-                m_target = GetTarget(targetables);
-
-                if(m_target == null)
+                //New Target gernal Target
+                if (m_targetObject == null)
                 {
-                    OnDisband();
-                    return false;
-                }
+                    m_sState = SquadState.Idle;
+                    m_target = GetTarget(targetables);
 
-                m_targetObject = m_target.GetTargetObject();
-
-            }
-            else
-            {
-                //Only take units away that don't influence the win change
-                ITargetable newTarget = GetTarget(targetables, m_target.GetStrenght());
-
-                if (newTarget != null)
-                {
-                    List<BaseUnit> squadUnits = new List<BaseUnit>();
-                    // fill the sqaud with units worth of the newTarget strenght
-                    float strenght = 0;
-                    foreach(BaseUnit unit in m_units)
+                    if (m_target == null)
                     {
-                        squadUnits.Add(unit);
-                        strenght += unit.GetStrenght();
-                        if(strenght >= newTarget.GetStrenght())
-                        {
-                            break;
-                        }
+                        OnDisband();
+                        return false;
                     }
 
-                    Squad childSquad = new Squad(m_ownerController, squadUnits, newTarget, this);
-                    m_childSquads.Add(childSquad);
-                    return false;
+                    m_targetObject = m_target.GetTargetObject();
+
+                }
+                else
+                {
+                    //Only take units away that don't influence the win change
+                    ITargetable newTarget = GetTarget(targetables, m_target.GetStrenght());
+
+                    if (newTarget != null)
+                    {
+                        List<BaseUnit> squadUnits = new List<BaseUnit>();
+                        // fill the sqaud with units worth of the newTarget strenght
+                        float strenght = 0;
+                        foreach (BaseUnit unit in m_units)
+                        {
+                            squadUnits.Add(unit);
+                            strenght += unit.GetStrenght();
+                            if (strenght >= newTarget.GetStrenght())
+                            {
+                                break;
+                            }
+                        }
+
+                        Squad childSquad = new Squad(m_ownerController, squadUnits, newTarget, this);
+                        m_childSquads.Add(childSquad);
+                        return false;
+                    }
                 }
             }
         }
@@ -184,6 +188,9 @@ public class Squad
 
         foreach(BaseUnit unit in m_units)
         {
+            if (unit == null)
+                continue;
+
             if (!a_stop)
             {
                 unit.Navigate(m_targetObject.transform.position);
@@ -201,6 +208,9 @@ public class Squad
 
         foreach(BaseUnit unit in m_units)
         {
+            if (unit == null)
+                continue;
+
             c += unit.transform.position;
         }
 

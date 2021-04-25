@@ -12,13 +12,13 @@ namespace UtilAI
             switch (a_type)
             {
                 case CurveType.Linear:
-                    return LinearQuadraticCurve(inValue, a_rules);
+                    return Mathf.Clamp(LinearQuadraticCurve(inValue, a_rules), 0,1);
                 case CurveType.Quadratic:
-                    return LinearQuadraticCurve(inValue, a_rules);
+                    return Mathf.Clamp(LinearQuadraticCurve(inValue, a_rules), 0, 1);
                 case CurveType.Logistic:
-                    return LogisticCurve(inValue, a_rules);
+                    return Mathf.Clamp(LogisticCurve(inValue, a_rules), 0, 1);
                 case CurveType.Logit:
-                    return LogitCurve(inValue, a_rules);
+                    return Mathf.Clamp(LogitCurve(inValue, a_rules), 0, 1);
             }
 
             return 0;

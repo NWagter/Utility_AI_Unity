@@ -11,6 +11,8 @@ namespace UtilAI
 
         public override float CalcWeight(UtilityBrain a_brain)
         {
+            if (a_brain.m_controller.getUnits.Count >= 120)
+                return -1;
 
             if(ClearningHouse.UnitProductionQueueAvailable(a_brain) <= 0 || !a_brain.m_resourceManager.CanSpend(m_unit.getCost))
             {
@@ -23,7 +25,6 @@ namespace UtilAI
         public override void Action(UtilityBrain a_brain)
         {
             //Fetch Building to recruit
-            Debug.Log(" !Important | Should Recruit a " + m_unit.getName + " Right about now! | ");
             a_brain.m_controller.RecruitUnit(m_unit);
         }
 

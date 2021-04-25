@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882329b66afe7544d91266ec9cd5e950, type: 3}
-  m_Name: AttackAction
+  m_Script: {fileID: 11500000, guid: 1ccd839cbab460d40b6287231190c172, type: 3}
+  m_Name: MilitaryStrenghtInputEnemies
   m_EditorClassIdentifier: 
-  m_weightCoefficient: 1
-  m_contions:
-  - m_input: {fileID: 11400000, guid: e3f5983692dea5e4bad43e01fa63d4fb, type: 2}
-  m_actionType: 2
-  m_attackType: 0
+  m_enableDebug: 0
+  m_curveType: 0
+  m_curveRules:
+    m: 1
+    k: 1
+    b: 0
+    c: 0
+  m_max: 4
+  m_considerEnemies: 1
+  m_considerCreeps: 0

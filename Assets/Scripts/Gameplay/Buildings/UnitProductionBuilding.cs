@@ -28,8 +28,6 @@ public class UnitProductionBuilding : BuildingBase
 
     protected override void Setup()
     {
-        Debug.Log("Building : " + gameObject.name + " Has been build!");
-
         m_uBuilding = (UnitProductionBuildingSO)m_building;
     }
 

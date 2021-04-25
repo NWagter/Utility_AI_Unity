@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         return m_creepLayers;
     }
 
+    public List<Controller> GetControllers()
+    {
+        return m_controllers;
+    }
+
     public void RemoveCreep(GameObject a_target)
     {
 
@@ -59,5 +64,11 @@ public class GameManager : MonoBehaviour
             return;
 
         m_creepLayers.Remove(a_target.GetComponent<CreepLayer>());
+    }
+
+    public void RemoveController(Controller a_controller)
+    {
+        m_controllers.Remove(a_controller);
+        Destroy(a_controller.gameObject);
     }
 }

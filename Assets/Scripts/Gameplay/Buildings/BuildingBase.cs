@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BuildingBase : MonoBehaviour, ITargetable
 {
+    public BuildingSO getBuildingSO => m_building;
     protected BuildingSO m_building = null;
 
     protected Controller m_owningController;
@@ -41,7 +42,7 @@ public class BuildingBase : MonoBehaviour, ITargetable
     }
     public float GetStrenght()
     {
-        return 0;
+        return m_building.getDefenseStrenght;
     }
 
     public bool CanTarget(Controller a_controller)

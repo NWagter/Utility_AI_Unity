@@ -17,6 +17,7 @@ MonoBehaviour:
     m_food: 0
     m_wood: 40
     m_stone: 0
+  m_defenseStrenght: 2
   m_buildingType: 0
   m_harvestTime: 0.5
   m_resourceType: 0

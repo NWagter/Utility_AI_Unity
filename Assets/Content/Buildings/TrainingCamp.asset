@@ -17,6 +17,7 @@ MonoBehaviour:
     m_food: 0
     m_wood: 60
     m_stone: 0
+  m_defenseStrenght: 3
   m_buildingType: 1
   m_unit: {fileID: 11400000, guid: 1123af2d58741df48bff141055076fdc, type: 2}
   m_maxQueue: 1

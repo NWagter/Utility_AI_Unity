@@ -10,8 +10,6 @@ public class ResourceBuilding : BuildingBase
     private int m_harvestAmount = 10;
     protected override void Setup()
     {
-        Debug.Log("Building : " + gameObject.name + " Has been build!");
-
         m_rBuilding = (ResourceBuildingSO)m_building;
         m_resourceType = m_rBuilding.getResourceType;
 

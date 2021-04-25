@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b836f6085e18b5409417e782685eb4f, type: 3}
-  m_Name: Keep
+  m_Script: {fileID: 11500000, guid: 882329b66afe7544d91266ec9cd5e950, type: 3}
+  m_Name: AttackActionCreeps
   m_EditorClassIdentifier: 
-  m_buildingObject: {fileID: 6749678930291164074, guid: f2e5a0cc114e37e479f78db58eb4ff48, type: 3}
-  m_cost:
-    m_food: 0
-    m_wood: 0
-    m_stone: 0
-  m_defenseStrenght: 10
-  m_buildingType: 2
+  m_weightCoefficient: 1
+  m_contions:
+  - m_input: {fileID: 11400000, guid: 0bd57230a38861c4fbbab6e1ca0b4966, type: 2}
+  m_actionType: 2
+  m_attackType: 0

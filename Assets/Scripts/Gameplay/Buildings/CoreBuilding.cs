@@ -10,8 +10,6 @@ public class CoreBuilding : BuildingBase
 
     protected override void Setup()
     {
-        Debug.Log("Building : " + gameObject.name + " Has been build!");
-
         m_cBuilding = (CoreBuildingSO)m_building;
 
         Vector3 pos = transform.position;

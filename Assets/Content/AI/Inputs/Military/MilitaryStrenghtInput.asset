@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccd839cbab460d40b6287231190c172, type: 3}
   m_Name: MilitaryStrenghtInput
   m_EditorClassIdentifier: 
+  m_enableDebug: 0
   m_curveType: 0
   m_curveRules:
     m: -1
     k: 1
     b: 1
     c: 0
-  m_max: 10
-  m_enableDebug: 0
+  m_max: 5
+  m_considerEnemies: 0
+  m_considerCreeps: 0

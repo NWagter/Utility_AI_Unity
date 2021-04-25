@@ -38,6 +38,8 @@ public class Controller : MonoBehaviour
     }
     public void AddBuilding(BuildingBase a_building)
     {
+        m_militaryStrenght += a_building.getBuildingSO.getDefenseStrenght;
+
         m_availableBuildings.Add(new Buildings()
         {
             m_building = a_building,
@@ -46,7 +48,9 @@ public class Controller : MonoBehaviour
     }
     public void RemoveBuilding(BuildingBase a_building)
     {
-        foreach(Buildings b in m_availableBuildings)
+        m_militaryStrenght -= a_building.getBuildingSO.getDefenseStrenght;
+
+        foreach (Buildings b in m_availableBuildings)
         {
             if(b.m_building == a_building)
             {
@@ -76,6 +80,11 @@ public class Controller : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (m_availableBuildings.Count <= 0)
+        {
+            m_gameManager.RemoveController(this);
+        }
+
         foreach(Squad s in m_squads)
         {
             if (!s.UpdateSquad())

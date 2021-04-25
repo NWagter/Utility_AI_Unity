@@ -33,6 +33,9 @@ namespace UtilAI
 
     public class InputSO : ContentSO
     {
+        [Tooltip("Show the result and Input on this Input")]
+        public bool m_enableDebug = false;
+
         [Tooltip("Curve Used")]
         public CurveType m_curveType = CurveType.Linear;
         public CurveRules m_curveRules = new CurveRules(1,2,0,1);
@@ -40,8 +43,6 @@ namespace UtilAI
         [Tooltip("To Clamp max")]
         public float m_max = 50;
 
-        [Tooltip("Show the result and Input on this Input")]
-        public bool m_enableDebug = false;
 
         public virtual float CurveCal(UtilityBrain a_brain)
         {

@@ -28,19 +28,12 @@ public class AIController : Controller
         m_resourceLayer = 1 << 7;
     }
 
-    public void Attack(AttackType m_attackType)
+    public void Attack(AttackType a_attackType)
     {
-        if (m_attackType != AttackType.Creep)
-            return;
+        ITargetable target = FetchTarget(a_attackType);
 
-        CreepLayer layer = null;
-        foreach(CreepLayer cLayer in getGameManager.GetCreepLayers())
-        {
-            if(layer == null || (layer.getStrenght < cLayer.getStrenght))
-            {
-                layer = cLayer;
-            }
-        }
+        if (target == null)
+            return;
 
         //Create Squad
         List<BaseUnit> units = new List<BaseUnit>();
@@ -48,7 +41,7 @@ public class AIController : Controller
         float strenght = 0;
         foreach(BaseUnit unit in m_availableUnits)
         {
-            if((layer.getStrenght * 2.5f) < strenght)
+            if((target.GetStrenght() * 2.5f) < strenght)
             {
                 break;
             }
@@ -57,7 +50,46 @@ public class AIController : Controller
             strenght += unit.getUnitSo.getMilitaryStrenght;
         }
 
-        Squad squad = new Squad(this, units, layer.GetComponent<ITargetable>());
+        Squad squad = new Squad(this, units, target);
+    }
+
+    private ITargetable FetchTarget(AttackType a_type)
+    {
+        ITargetable returnValue = null;
+
+        if (a_type == AttackType.Creep)
+        {
+            float distance = -1;
+            foreach (CreepLayer cLayer in getGameManager.GetCreepLayers())
+            {
+                float dist = Vector3.Distance(m_availableBuildings[0].m_location, cLayer.transform.position);
+
+                if ((returnValue == null || (returnValue.GetStrenght() <= cLayer.getStrenght)) && dist < 120)
+                {
+                    if (distance <= -1 || dist < distance)
+                    {
+                        returnValue = cLayer.GetComponent<ITargetable>();
+                        distance = dist;
+                    }
+                }
+            }
+        }
+        else if(a_type == AttackType.Enemy)
+        {
+            foreach (Controller c in getGameManager.GetControllers())
+            {
+                if (c == this)
+                    continue;
+
+                if (returnValue == null || (returnValue.GetStrenght() < c.getMilitaryStrenght))
+                {
+                    if(c.getBuildings.Count > 0)
+                        returnValue = c.getBuildings[0].m_building.GetComponent<ITargetable>();
+                }
+            }
+        }
+
+        return returnValue;
     }
 
     protected override void Update()

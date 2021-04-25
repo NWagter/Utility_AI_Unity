@@ -7,6 +7,7 @@ namespace UtilAI
     public enum AttackType
     {
         Creep,
+        Enemy
     }
 
     [CreateAssetMenu(fileName = "AttackAction", menuName = "AI/Utilities/Action/AttackAction", order = 1)]
@@ -17,6 +18,10 @@ namespace UtilAI
         public override float CalcWeight(UtilityBrain a_brain)
         {
             if(m_attackType == AttackType.Creep && !ClearningHouse.CreepsAvailable(a_brain))
+            {
+                return -1;
+            }
+            else if(m_attackType == AttackType.Enemy && !ClearningHouse.EnemiesAvailable(a_brain))
             {
                 return -1;
             }

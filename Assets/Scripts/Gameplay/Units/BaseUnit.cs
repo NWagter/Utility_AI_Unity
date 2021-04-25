@@ -31,6 +31,9 @@ public class BaseUnit : MonoBehaviour, ITargetable
 
     public void Navigate(Vector3 a_point)
     {
+        if (!m_agent.isOnNavMesh)
+            return;
+
         m_agent.SetDestination(a_point);
     }
     public void StopNavigating()
