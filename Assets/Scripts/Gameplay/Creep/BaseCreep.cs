@@ -31,7 +31,7 @@ public class BaseCreep : MonoBehaviour, ITargetable
 
     private void Update()
     {
-        if(Vector3.Distance(m_agent.destination, transform.position) < 0.5f)
+        if(Vector3.Distance(m_agent.destination, transform.position) < 1.5f)
         {
             Wander();
         }
