@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2625f1808b0384b813d222674018d9, type: 3}
   m_Name: Creep
   m_EditorClassIdentifier: 
-  m_amountOfCreeps: 2
+  m_amountOfCreeps: 3
   m_respawnTime: 10
   m_name: Creep
   m_creepObject: {fileID: 5382742258149816505, guid: 08f37f4d6e9ce46419f57a55c0f52380, type: 3}
