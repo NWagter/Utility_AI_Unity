@@ -47,5 +47,22 @@ public class BaseCreep : MonoBehaviour, ITargetable
         Vector3 location = (Random.onUnitSphere * m_wanderDistance) + m_layerPoint;
         Navigate(location);
     }
+    public GameObject GetTargetObject()
+    {
+        return gameObject;
+    }
+
+    public TargetType GetTargetType()
+    {
+        return TargetType.Building;
+    }
+    public float GetStrenght()
+    {
+        return m_creep.getStrenght;
+    }
+    public bool CanTarget(Controller a_controller)
+    {
+        return true;
+    }
 }
 

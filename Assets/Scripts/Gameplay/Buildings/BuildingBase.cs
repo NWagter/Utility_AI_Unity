@@ -30,4 +30,22 @@ public class BuildingBase : MonoBehaviour, ITargetable
             m_owningController.RemoveBuilding(this);
         }
     }
+    public GameObject GetTargetObject()
+    {
+        return gameObject;
+    }
+
+    public TargetType GetTargetType()
+    {
+        return TargetType.Building;
+    }
+    public float GetStrenght()
+    {
+        return 0;
+    }
+
+    public bool CanTarget(Controller a_controller)
+    {
+        return (a_controller != m_owningController);
+    }
 }

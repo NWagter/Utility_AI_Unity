@@ -45,5 +45,24 @@ public class CreepLayer : MonoBehaviour, ITargetable
         unit.Setup(this, m_creep);
         unit.Navigate(transform.position + m_rallyPoint);
     }
+
+    public GameObject GetTargetObject()
+    {
+        return gameObject;
+    }
+
+    public TargetType GetTargetType()
+    {
+        return TargetType.Building;
+    }
+
+    public float GetStrenght()
+    {
+        return m_strenght;
+    }
+    public bool CanTarget(Controller a_controller)
+    {
+        return true;
+    }
 }
 

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class BaseUnit : MonoBehaviour, ITargetable
 {
+    private Controller m_owningController;
     private NavMeshAgent m_agent = null;
 
     public UnitSO getUnitSo => m_unitSo;
@@ -20,8 +21,9 @@ public class BaseUnit : MonoBehaviour, ITargetable
         m_agent = GetComponent<NavMeshAgent>(); 
         m_sqaud = null;
     }
-    public void Setup(UnitSO a_unitSO, Vector3 a_rallyPoint)
+    public void Setup(UnitSO a_unitSO, Vector3 a_rallyPoint, Controller a_controller)
     {
+        m_owningController = a_controller;
         m_unitSo = a_unitSO;
         m_spawnPoint = a_rallyPoint;
         Navigate(a_rallyPoint);
@@ -49,6 +51,24 @@ public class BaseUnit : MonoBehaviour, ITargetable
     public void ReturnToSpawn()
     {
         Navigate(m_spawnPoint);
+    }
+
+    public GameObject GetTargetObject()
+    {
+        return gameObject;
+    }
+
+    public TargetType GetTargetType()
+    {
+        return TargetType.Building;
+    }
+    public float GetStrenght()
+    {
+        return m_unitSo.getMilitaryStrenght;
+    }
+    public bool CanTarget(Controller a_controller)
+    {
+        return (m_owningController != a_controller);
     }
 }
 

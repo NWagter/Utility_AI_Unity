@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour
     {
         int spawnId = 0;
 
-        for(int i = 0; i < m_spawnPoints.Count;i++)
+        for (int i = 0; i < m_spawnPoints.Count; i++)
         {
             if (!m_spawnPoints[i].taken)
             {
                 spawnId++;
                 var controller = m_spawnPoints[i].SpawnController(m_enemyObject);
                 controller.Setup(i, this);
-                controller.name =  spawnId.ToString() + " Enemy Controller";
+                controller.name = spawnId.ToString() + " Enemy Controller";
                 m_controllers.Add(controller);
             }
         }
@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
 
     public void RemoveCreep(GameObject a_target)
     {
-        if (a_target == null)
+
+        if (a_target == null || a_target.GetComponent<CreepLayer>() == null)
             return;
 
         m_creepLayers.Remove(a_target.GetComponent<CreepLayer>());

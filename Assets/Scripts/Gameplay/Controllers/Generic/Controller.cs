@@ -65,6 +65,10 @@ public class Controller : MonoBehaviour
         m_militaryStrenght -= a_unit.getUnitSo.getMilitaryStrenght;
         m_availableUnits.Remove(a_unit);
     }
+    public void AddSquad(Squad a_squad)
+    {
+        m_squads.Add(a_squad);
+    }
     public void RemoveSquad(Squad a_squad)
     {
         m_squads.Remove(a_squad);

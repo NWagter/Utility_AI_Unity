@@ -48,7 +48,7 @@ public class AIController : Controller
         float strenght = 0;
         foreach(BaseUnit unit in m_availableUnits)
         {
-            if((layer.getStrenght * 1.2) < strenght)
+            if((layer.getStrenght * 2.5f) < strenght)
             {
                 break;
             }
@@ -57,8 +57,7 @@ public class AIController : Controller
             strenght += unit.getUnitSo.getMilitaryStrenght;
         }
 
-        Squad squad = new Squad(this, units, layer.gameObject);
-        m_squads.Add(squad);
+        Squad squad = new Squad(this, units, layer.GetComponent<ITargetable>());
     }
 
     protected override void Update()
