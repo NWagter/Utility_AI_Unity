@@ -41,11 +41,11 @@ public class ContentLibrary<T> : MonoBehaviour where T : ContentSO
     {
         Debug.Assert(m_content.ContainsKey(a_id), "Content does not exists!");
 
-        ContentSO building = m_content[a_id];
+        ContentSO content = m_content[a_id];
 
-        Debug.Assert(building is T, "Content is not of correct type!");
+        Debug.Assert(content is T, "Content is not of correct type!");
 
-        return (Type)building;
+        return (Type)content;
     }
 
     private void Start()
